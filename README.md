@@ -17,8 +17,8 @@ As *developers* we have the ability to both use and distribute third-party scrip
 <hr>
 
 ##How do these things work?
-Good question, we asked google the same thing. Here is a diagram we found on the internets -
-![Image](./images/3rd_party_diagram.png)
+Good question, we asked google the same thing. Here is a diagram we found on the internets - <br>
+<img src='./images/3rd_party_diagram.png' height=600 style="align-content:center;">
 
 ## Three Main Types
 ### 1. Embedded Scripts

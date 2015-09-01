@@ -1,0 +1,31 @@
+.button
+  border: none
+  +border-radius(2px)
+  text-decoration: none
+  display: inline-block
+  padding: 10px 15px
+  font-size: 14px
+  font-weight: 400
+  line-height: 1
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+  cursor: pointer
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  // Default styles:
+  background: $information_blue
+  color: white
+  &:hover
+    background: darken($information_blue, 10%)
+    color: white
+
+  // Variations
+  &.button-dark
+    background: #333
+    color: white

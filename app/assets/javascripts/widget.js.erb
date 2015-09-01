@@ -4,7 +4,7 @@
   <%= File.read(Rails.root.join("vendor/assets/javascripts/ready.js")) %>
   domready(function() {
     var widget_link, iframe, i, widget_links;
-    widget_links = getElementsByClassName('example-profile-widget');
+    widget_links = getElementsByClassName('profile-widget');
     for (i = 0; i < widget_links.length; i++) {
       widget_link = widget_links[i];
       iframe = document.createElement('iframe');

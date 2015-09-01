@@ -1,6 +1,7 @@
 .button
-  border: none
   +border-radius(2px)
+  +transition(all .2s)
+  border: none
   text-decoration: none
   display: inline-block
   padding: 10px 15px
@@ -19,13 +20,30 @@
   user-select: none
 
   // Default styles:
-  background: $information_blue
+  background: $blue
   color: white
+  border: 1px solid $blue
   &:hover
-    background: darken($information_blue, 10%)
+    background: darken($blue, 10%)
     color: white
+    border-color: darken($blue, 10%)
 
-  // Variations
+  &.button-mini
+    font-size: 75%
+  // Dark
   &.button-dark
     background: #333
     color: white
+    &:hover
+      background: darken(#333, 10%)
+      color: white
+
+  // Outline button
+  &.button-ghost
+    background: none
+    color: #656464
+    border: 1px solid #656464
+    &:hover
+      background: none
+      border-color: #55A55F
+      color: #55A55F

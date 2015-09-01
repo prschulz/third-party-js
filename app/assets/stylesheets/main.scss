@@ -43,21 +43,19 @@
 // ==========================================
 //
 // Reset & normalize
-// Files: ./new/engine/base
+// Files: ./engine/base
 //        |- reset
 //        |- normalize
 //
 //
 // Description: Resets all basic elements and adds normalizing styles
 // Format: styles
-@import "new/engine/lib/variables";
-@import "new/engine/lib/modular-scale";
-@import "new/engine/lib/mixins";
-@import "new/engine/lib/func-mixins";
-@import "new/engine/base/reset";
-@import "new/engine/base/normalize";
-@import "new/engine/base/fonts";
-@import "new/engine/base/animations";
+@import "engine/lib/variables";
+@import "engine/lib/func-mixins";
+@import "engine/base/reset";
+@import "engine/base/normalize";
+@import "engine/base/fonts";
+@import "engine/base/animations";
 
 
 // ==========================================
@@ -70,12 +68,11 @@
 //
 // Includes: text-right, text-center, quiet-link
 // Format: variables, functions
-@import "new/engine/base/typeset";
-@import "new/engine/base/typography";
-@import "new/engine/base/layout";
-@import "new/engine/base/fonts";
-@import "new/engine/base/sticky";
-@import "new/engine/base/flexbox";
+@import "engine/base/typography";
+@import "engine/base/layout";
+@import "engine/base/fonts";
+@import "engine/base/sticky";
+@import "engine/base/flexbox";
 
 
 // ==========================================
@@ -88,7 +85,7 @@
 //
 // Includes: text-right, text-center, quiet-link
 // Format: variables, functions
-@import "new/engine/utilities/**/*";
+@import "engine/utilities/**/*";
 
 
 // ==========================================
@@ -101,28 +98,4 @@
 //
 // Includes: text-right, text-center, quiet-link
 // Format: variables, functions
-@import "new/components/**/*";
-
-
-// ==========================================
-//
-// Templates
-// Files: ./engine/base
-//        |- mixins       <- site wide
-//        |- type_mixins  <- type mixins: measure, base font size, etc.
-//
-//
-// Includes: text-right, text-center, quiet-link
-// Format: variables, functions
-@import "new/templates/**/*";
-
-
-// Demo baseline grid styles.
-#baseline.show-grid {
-  background-image: -webkit-linear-gradient(top, cyan 0, rgba(255,255,255,0) 1px);
-  background-image: -moz-linear-gradient(top, cyan 0, rgba(255,255,255,0) 1px);
-  background-image: -o-linear-gradient(top, cyan 0, rgba(255,255,255,0) 1px);
-  background-image: linear-gradient(to bottom, cyan 0, rgba(255,255,255,0) 1px);
-  background-repeat: repeat-y;
-  background-size: 100% 1rem;
-}
+@import "components/**/*";

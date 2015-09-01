@@ -4,6 +4,6 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    render partial: "templates/widgets/profile", locals: { user: user }
+    render "templates/widgets/profile", locals: { user: user }, layout: "application"
   end
 end

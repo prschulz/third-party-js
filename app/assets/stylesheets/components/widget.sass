@@ -1,7 +1,57 @@
 .widget
+  +border-radius(2px)
+  border: 1px solid #B3B3B3
+  width: 100%
+  max-width: 400px
+  margin: auto
+
   .widget-header
+    +border-radius(2px 2px 0 0)
+    height: 120px
+    overflow: hidden
+
   .widget-body
+    padding: 0 15px 15px 15px
+    // text-align: center
+
   .widget-meta
+    font-size: 13px
+    line-height: 1.5
+
+    &.profile-avatar
+      margin-top: -25px
+      width: 60px
+      height: 60px
+      border: 3px solid white
+
     &.name
+      display: inline-block
+      font-size: 20px
+      vertical-align: bottom
+
+      span
+        font-size: 11px
+        color: #55A55F
+        margin-left: .5em
+
     &.url
+      a
+        color: grey
+        text-decoration: none
+
     &.description
+
+  .button.like
+    background: none
+    color: #E47E7E
+    border: 1px solid #BDBDBD
+    &:hover
+      color: #be3232
+      border-color: #6e6d6d
+
+  .widget-cta
+    &.footer-link
+      color: grey
+      text-decoration: none
+      display: block
+      font-size: 12px

@@ -5,7 +5,7 @@
 
 // Z-index values
 $z-layers: (
-  "nav":            9001, 
+  "nav":            9001,
   "modal": (
     "base":           500,
     "close":          100,
@@ -105,19 +105,18 @@ $hoverColour: #0B348B;
 $captionColour: #BDC8CC;
 $white: #FFFFFF;
 
-$information_blue: #698cbb;
-$information_red: #d04237;
+$blue: #698cbb;
+$red: #d04237;
 
 // Background colours.
 $backgroundColour: #FCFCFC;
 $codeBackgroundColour: #F5F4F2;
 
+$sans-serif-font: 'Lato', sans-serif;
+$sans-serif-font-weight: normal;
 
-$serif-font: 'MetaSerif Book', 'Times New Roman', Times, serif;
+$serif-font: $sans-serif-font;
 $serif-font-weight: normal;
 
-$serif-font-bold: 'MetaSerif Bold', 'Times New Roman', Times, serif;
+$serif-font-bold: $sans-serif-font;
 $serif-font-bold-weight: normal;
-
-$sans-serif-font: 'Meta Normal', sans-serif;
-$sans-serif-font-weight: normal;

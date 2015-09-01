@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def widget
     user = User.find_by_guid(params[:id])
     if user.blank?
       render "templates/widgets/profile-404", layout: "application"

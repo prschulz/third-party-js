@@ -60,7 +60,24 @@ These scripts simplify client-side access to an API. A good example here is the 
 <br>
 **Here is how we did it** -<br>
 ```
-Insert Script here
+(function() {
+  <%= File.read(Rails.root.join("vendor/assets/javascripts/getElementsByClassName.js")) %>
+  <%= File.read(Rails.root.join("vendor/assets/javascripts/ready.js")) %>
+  domready(function() {
+    var widget_link, iframe, i, widget_links;
+    widget_links = getElementsByClassName('profile-widget');
+    for (i = 0; i < widget_links.length; i++) {
+      widget_link = widget_links[i];
+      iframe = document.createElement('iframe');
+      iframe.setAttribute('src', widget_link.href + "?output=embed");
+      iframe.setAttribute('width', '400');
+      iframe.setAttribute('height', '600');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('scrolling', 'no');
+      widget_link.parentNode.replaceChild(iframe, widget_link);
+    }
+  });
+})();
 ```
 ##Enough talking, let's code! 
 Everyone feel free to fork and clone this repo so they can work on their own version. 

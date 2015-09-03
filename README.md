@@ -53,12 +53,14 @@ These scripts simplify client-side access to an API. A good example here is the 
 
 ###How to Include
 
-##### Dom Creation vs. Iframes
-**Dom Creation** - Create the whole DOM of our widget via jQuery or Vanilla JS. This method allows some more compatibility with older browsers, but is ultimately less flexible when it comes to how complex content can be. And sounds like a lot of work. 
+##### Dom Creation
+Create the whole DOM of our widget via jQuery or Vanilla JS. This method allows some more compatibility with older browsers, but is ultimately less flexible when it comes to how complex content can be. And sounds like a lot of work. 
+
+#####Iframes
+This is our preferred method. An iframe is separate from the rest of the page with content loaded in. This allows us to essentially build content in the same way we load any content and load it directly from a static file hosted on our server. An additional advantage is the ability to use forms without the need to worry about ajax.
 <br>
-**Iframes** - This is our preferred method. An iframe is separate from the rest of the page with content loaded in. This allows us to essentially build content in the same way we load any content and load it directly from a static file hosted on our server. An additional advantage is the ability to use forms without the need to worry about ajax.
-<br>
-**Here is how we did it** -<br>
+#####Here is how we did it
+Don't worry, we'll walk through it in a sec.
 ```
 (function() {
   <%= File.read(Rails.root.join("vendor/assets/javascripts/getElementsByClassName.js")) %>

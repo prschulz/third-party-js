@@ -71,8 +71,8 @@ Don't worry, we'll walk through it in a sec.
     for (i = 0; i < widget_links.length; i++) {
       widget_link = widget_links[i];
       iframe = document.createElement('iframe');
-      iframe.setAttribute('src', widget_link.href + "?output=embed");
-      iframe.setAttribute('width', '400');
+      iframe.setAttribute('src', widget_link.href);
+      iframe.setAttribute('style', 'width: 100%; max-width: 400px;');
       iframe.setAttribute('height', '600');
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('scrolling', 'no');
@@ -84,10 +84,44 @@ Don't worry, we'll walk through it in a sec.
 ##Enough talking, let's code! 
 Everyone feel free to fork and clone this repo so they can work on their own version. 
 
+## Further Reading
+Once you have the widget working, try working on advanced concepts:
+- Make the height adjust themselves to the iframe's content: [github.com/house9/jquery-iframe-auto-height](https://github.com/house9/jquery-iframe-auto-height) 
+- Open a custom popup window from links inside the iframe  
+ This snippet is already included inside the profile widget to create a popup, center it and not to change the parent window:
+```html
+<script type="text/javascript">
+  (function() {
+
+    $(".mini-link").on("click", function(e){
+      e.preventDefault();
+      PopupCenter("<%= new_user_registration_url %>" , "Register", 600, 500)
+    })
+  })();
+  function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+        newWindow.focus();
+    }
+  }
+</script>
+```
+sauce: [Center a new popup window even on dualscreen with javascript](http://www.xtf.dk/2011/08/center-new-popup-window-even-on.html)  
 
 <br>
 <hr>
-#####Want some more info??? Here is where we looked :)
+## Want some more info??? Here is where we looked :)
 
 [https://friendlybit.com/js/lazy-loading-asyncronous-javascript/](https://friendlybit.com/js/lazy-loading-asyncronous-javascript/)
 

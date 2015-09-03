@@ -117,7 +117,8 @@ Once you have the widget working, try working on advanced concepts:
   }
 </script>
 ```
-sauce: [Center a new popup window even on dualscreen with javascript](http://www.xtf.dk/2011/08/center-new-popup-window-even-on.html)  
+sauce: [Center a new popup window even on dualscreen with javascript](http://www.xtf.dk/2011/08/center-new-popup-window-even-on.html) 
+WC3: [http://www.w3schools.com/jsref/met_win_open.asp](http://www.w3schools.com/jsref/met_win_open.asp)
 
 <br>
 <hr>

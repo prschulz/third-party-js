@@ -1,4 +1,4 @@
-##Why are these dudes talking to us?
+#Why are these dudes talking to us?
 We want to tell you about third party javascript and our new app: ***Tinder for Vegans***. 
 ###First thing's first, what is third party JS? 
 **It is a script that allows people to embed content / functionality into their own websites and blogs by copy-pasting a little bit of code.**
@@ -20,6 +20,8 @@ As *developers* we have the ability to both use and distribute third-party scrip
 Good question, we asked google the same thing. Here is a diagram we found on the internets - <br>
 <img src='./images/3rd_party_diagram.png' height=600 style="align-content:center;">
 
+<hr>
+
 ## Three Main Types
 ### 1. Embedded Scripts
 These are probably the most common and the type we'll be demoing today. Typically, these are small apps that are rendered and made accessible on a publisher's website, but load and submit resources from a separate set of servers. It may seem simple, but *entire businesses* are built surrounding this concept. 
@@ -35,3 +37,66 @@ Active scripts require some user inputs in order to work. A good example is MixP
 
 ### 3. Web Service API Wrappers
 These scripts simplify client-side access to an API. A good example here is the FB Graph API. Facebook has a JS library that provides functions for you to communicate with their API. 
+
+<hr>
+
+## Getting Started
+###What should we be thinking about?
+(The following is thanks to Emil Stenström, author of [Friendly Bit](https://friendlybit.com))<br>
+
+1. **Small** - We don't want to include a lot in other people's code.
+2. **Standalone** - We need to stand on our own two feet. No depending on other JS libraries. 
+3. **Cross-browser Compatible** - We may assume everyone with a brain doesn't use IE but people using our embeddable code may not be so lucky. 
+4. **Async** - This cannot block the the download of any other scripts on the page. 
+5. **Preserve Events** - Our events should not override any events on the user's site.
+6. **Clean Namespace** - No global variables
+
+###How to Include
+
+##### Dom Creation
+Create the whole DOM of our widget via jQuery or Vanilla JS. This method allows some more compatibility with older browsers, but is ultimately less flexible when it comes to how complex content can be. And sounds like a lot of work. 
+
+#####Iframes
+This is our preferred method. An iframe is separate from the rest of the page with content loaded in. This allows us to essentially build content in the same way we load any content and load it directly from a static file hosted on our server. An additional advantage is the ability to use forms without the need to worry about ajax.
+<br>
+#####Here is how we did it
+Don't worry, we'll walk through it in a sec.
+```
+(function() {
+  <%= File.read(Rails.root.join("vendor/assets/javascripts/getElementsByClassName.js")) %>
+  <%= File.read(Rails.root.join("vendor/assets/javascripts/ready.js")) %>
+  domready(function() {
+    var widget_link, iframe, i, widget_links;
+    widget_links = getElementsByClassName('profile-widget');
+    for (i = 0; i < widget_links.length; i++) {
+      widget_link = widget_links[i];
+      iframe = document.createElement('iframe');
+      iframe.setAttribute('src', widget_link.href + "?output=embed");
+      iframe.setAttribute('width', '400');
+      iframe.setAttribute('height', '600');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('scrolling', 'no');
+      widget_link.parentNode.replaceChild(iframe, widget_link);
+    }
+  });
+})();
+```
+##Enough talking, let's code! 
+Everyone feel free to fork and clone this repo so they can work on their own version. 
+
+
+<br>
+<hr>
+#####Want some more info??? Here is where we looked :)
+
+[https://friendlybit.com/js/lazy-loading-asyncronous-javascript/](https://friendlybit.com/js/lazy-loading-asyncronous-javascript/)
+
+[http://shootitlive.com/2012/07/developing-an-embeddable-javascript-widget/](http://shootitlive.com/2012/07/developing-an-embeddable-javascript-widget/)
+
+[http://blog.swirrl.com/articles/creating-asynchronous-embeddable-javascript-widgets/](http://blog.swirrl.com/articles/creating-asynchronous-embeddable-javascript-widgets/)
+
+[http://www.doorkeeperhq.com/developer/embeddable-javascript-widget](http://www.doorkeeperhq.com/developer/embeddable-javascript-widget)
+
+[https://www.manning.com/books/third-party-javascript](https://www.manning.com/books/third-party-javascript)
+
+[http://codeutopia.net/blog/2012/05/26/best-practices-for-building-embeddable-widgets/](http://codeutopia.net/blog/2012/05/26/best-practices-for-building-embeddable-widgets/)

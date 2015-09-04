@@ -1,6 +1,5 @@
 module UsersHelper
-
-
+  
   def avatar(user)
     if user.avatar.present?
       image_tag(user.avatar, class: "widget-meta profile-avatar")
@@ -17,37 +16,4 @@ module UsersHelper
     end
   end
 
-  # ======
-  #
-  # Status badges for articles
-  #
-  # Usage:
-  # Pass in an article and it returns the badge with text based on the status of the article.
-  #
-  #
-  def status_badge(article)
-    case
-      # ======
-      #
-      # Unpublished
-      #
-      when article.published_at.nil? && article.embargoed_until.nil?
-        "<span class='badge'>#{status_text(article)}</span>".html_safe
-
-      # ======
-      #
-      # Published
-      #
-      when article.published_at.present?
-        "<span class='badge status-active'>#{status_text(article)}</span>".html_safe
-
-      # ======
-      #
-      # Embargoed
-      #
-      when article.embargoed_until.present?
-        "<span class='badge status-pending'>#{status_text(article, extended: true)}</span>".html_safe
-      #
-    end
-  end
 end

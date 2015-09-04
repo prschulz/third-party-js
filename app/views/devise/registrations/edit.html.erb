@@ -1,14 +1,9 @@
 <div class="row">
-  <div class="medium-12 columns">
+  <div class="medium-6 columns">
     <h2 class="text-green">Vegan level: <%= current_user.level %></h2>
 
 
-    <p>
-      embed code:
 
-    </p>
-    <textarea class="embed-code" rows="3" cols="100"><script type="text/javascript" async src="http://localhost:3000/assets/widget.js"></script><%= link_to "View #{current_user.name}'s profile'", user_profile_widget_url(current_user.guid), class: "profile-widget" %>
-    </textarea>
 
 
 
@@ -67,5 +62,15 @@
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button button-ghost " %>
     <%= link_to "Back", :back %>
 
+  </div>
+  <div class="medium-5 columns">
+    <%= render partial: "templates/widgets/profile", locals: { user: current_user } %>
+    <hr class="mt4">
+    <p>
+      embed code:
+
+    </p>
+    <textarea class="embed-code" rows="6" cols="40"><script type="text/javascript" async src="http://localhost:3000/assets/widget.js"></script><%= link_to "View #{current_user.name}'s profile'", user_profile_widget_url(current_user.guid), class: "profile-widget" %>
+    </textarea>
   </div>
 </div>

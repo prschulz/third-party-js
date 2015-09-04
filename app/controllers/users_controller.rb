@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if user.blank?
       render "templates/widgets/profile-404", layout: "widget"
     else
-      render "templates/widgets/profile", locals: { user: user }, layout: "widget"
+      render partial: "templates/widgets/profile", locals: { user: user }, layout: "widget"
     end
   end
 end

@@ -13,7 +13,7 @@ module UsersHelper
     if user.cover_photo.present?
       image_tag(user.cover_photo)
     else
-      image_tag("http://33.media.tumblr.com/72b99653d8e3ac0e6dfed1a9bdad2302/tumblr_nohbix1n0v1uvkr55o1_500.gif")
+      image_tag("http://31.media.tumblr.com/85d20081f45167cfa0444db23df1f0d5/tumblr_mi6ul42CIl1race41o1_500.gif")
     end
   end
 

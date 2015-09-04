@@ -8,7 +8,7 @@ module Tokenable
   protected
 
   def generate_token
-    self.token = loop do
+    self.guid = loop do
       random_token = SecureRandom.hex(4)
       break random_token unless self.class.exists?(guid: random_token)
     end

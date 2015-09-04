@@ -1,0 +1,16 @@
+<header class="row">
+  <div class="medium-6 columns">
+    <h1 class="logo">Tinder <span>for vegans</span></h1>
+  </div>
+  <nav class="medium-6 columns text-right">
+    <% if current_user.present? %>
+      <%= link_to "My account", edit_user_registration_path() %>
+      <hr>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path() %>
+      <hr>
+      <%= link_to "Register", new_user_registration_path() %>
+    <% end %>
+  </nav>
+</header>

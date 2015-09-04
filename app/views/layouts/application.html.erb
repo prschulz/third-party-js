@@ -9,7 +9,15 @@
 </head>
 <body class="<%= friendly_current_page %>">
 
+<%= render partial: "templates/header" %>
+<div class="row">
+  <div class="medium-12 columns">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+</div>
 <%= yield %>
-
+<% #= debug(params) if Rails.env.development? %>
 </body>
 </html>

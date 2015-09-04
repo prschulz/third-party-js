@@ -68,7 +68,7 @@
     <hr class="mt4">
     <div class="field">
       <label>embed code:</label>
-      <textarea class="embed-code" rows="6" cols="40"><script type="text/javascript" async src="http://localhost:3000/assets/widget.js"></script><%= link_to "View #{current_user.name}'s profile'", user_profile_widget_url(current_user.guid), class: "profile-widget" %>
+      <textarea class="embed-code" rows="6" cols="40"><script type="text/javascript" async src=" <%= "#{ENV['BASE_URL']}/assets/widget.js" %> "></script><%= link_to "View #{current_user.name}'s profile'", user_profile_widget_url(current_user.guid), class: "profile-widget" %>
       </textarea>
     </div>
   </div>

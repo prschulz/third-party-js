@@ -1,0 +1,1 @@
+NonStupidDigestAssets.whitelist += ["widget.js"]

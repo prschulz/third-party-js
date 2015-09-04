@@ -46,4 +46,5 @@ end
 # Authentication
 gem 'devise'
 
-#
+# Digest and non-digest assets. Why not both?
+gem "non-stupid-digest-assets"

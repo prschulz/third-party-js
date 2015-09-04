@@ -8,8 +8,8 @@
     for (i = 0; i < widget_links.length; i++) {
       widget_link = widget_links[i];
       iframe = document.createElement('iframe');
-      iframe.setAttribute('src', widget_link.href + "?output=embed");
-      iframe.setAttribute('width', '400');
+      iframe.setAttribute('src', widget_link.href);
+      iframe.setAttribute('style', 'width: 100%; max-width: 400px;');
       iframe.setAttribute('height', '600');
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('scrolling', 'no');

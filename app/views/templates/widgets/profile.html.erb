@@ -19,5 +19,31 @@
     <%= link_to "<i class='fa fa-heart'></i>".html_safe, user_profile_path(user.guid), class: "button button-mini like ml1", target: "_parent" %>
   </div>
 </div>
-<%= link_to "Create your own account", new_user_registration_path, class: "mini-link mt1 text-right", target: "_parent" %>
+<%= link_to "Create your own account", new_user_registration_path, class: "mini-link mt1 text-right", target: "_blank" %>
 <!-- <a href="http://localhost:3000/register" class="mini-link mt1 text-right" target="_parent">Create your own account</a> -->
+<script type="text/javascript">
+  (function() {
+
+    $(".mini-link").on("click", function(e){
+      e.preventDefault();
+      PopupCenter("<%= new_user_registration_url %>" , "Register", 600, 500)
+    })
+  })();
+  function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+        newWindow.focus();
+    }
+  }
+</script>

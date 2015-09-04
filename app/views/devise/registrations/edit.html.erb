@@ -3,12 +3,26 @@
     <h2 class="text-green">Vegan level: <%= current_user.level %></h2>
 
 
+    <p>
+      embed code:
+
+    </p>
+    <textarea class="embed-code" rows="3" cols="100"><script type="text/javascript" async src="http://localhost:3000/assets/widget.js"></script><%= link_to "View #{current_user.name}'s profile'", user_profile_widget_url(current_user.guid), class: "profile-widget" %>
+    </textarea>
+
+
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "mt3" }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -46,11 +60,11 @@
       </div>
 
       <div class="actions mt2">
-        <%= f.submit "Update", class: "button" %>
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button button-ghost" %>
+        <%= f.submit "Update", class: "button mb1" %>
+
       </div>
     <% end %>
-
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button button-ghost " %>
     <%= link_to "Back", :back %>
 
   </div>

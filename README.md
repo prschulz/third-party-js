@@ -1,9 +1,9 @@
-#Why are these dudes talking to us?
+# Why are these dudes talking to our class?
 We want to tell you about third party javascript and our new app: ***Tinder for Vegans***. 
-###First thing's first, what is third party JS? 
+### First thing's first, what is third party JS? 
 **It is a script that allows people to embed content / functionality into their own websites and blogs by copy-pasting a little bit of code.**
 
-###Well I guess that makes sense if you're a robot, but can you give us an example...?
+### Well I guess that makes sense if you're a robot, but can you give us an example...?
 Sure, we see these things out in the wild everyday.
  
 * Advertisements
@@ -41,7 +41,7 @@ These scripts simplify client-side access to an API. A good example here is the 
 <hr>
 
 ## Getting Started
-###What should we be thinking about?
+### What should we be thinking about?
 (The following is thanks to Emil Stenström, author of [Friendly Bit](https://friendlybit.com))<br>
 
 1. **Small** - We don't want to include a lot in other people's code.
@@ -51,7 +51,7 @@ These scripts simplify client-side access to an API. A good example here is the 
 5. **Preserve Events** - Our events should not override any events on the user's site.
 6. **Clean Namespace** - No global variables
 
-###How to Include
+### How to Include
 
 ##### Dom Creation
 Create the whole DOM of our widget via jQuery or Vanilla JS. This method allows some more compatibility with older browsers, but is ultimately less flexible when it comes to how complex content can be. And sounds like a lot of work. 
@@ -81,7 +81,7 @@ This is our preferred method. An iframe is separate from the rest of the page wi
   });
 })();
 ```
-##Enough talking, let's code! 
+## Enough talking, let's code! 
 Everyone feel free to fork and clone this repo so they can work on their own version. 
 
 ## Further Reading
